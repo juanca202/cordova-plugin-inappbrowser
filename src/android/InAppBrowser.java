@@ -979,10 +979,10 @@ public class InAppBrowser extends CordovaPlugin {
                           intentArray = new Intent[0];
                       }
 
-                      Intent chooserIntent = new Intent(Intent.ACTION_IMAGE_CAPTURE);
-                      chooserIntent.putExtra(Intent.EXTRA_INTENT, takePictureIntent);
-                      chooserIntent.putExtra(Intent.EXTRA_TITLE, "Seleccione una imagen");
-                      //chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
+                      Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
+                      chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
+                      chooserIntent.putExtra(Intent.EXTRA_TITLE, "Selecione a imagem");
+                      chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
 
                       // Run cordova startActivityForResult
                       cordova.startActivityForResult(InAppBrowser.this, chooserIntent, FILECHOOSER_REQUESTCODE);
